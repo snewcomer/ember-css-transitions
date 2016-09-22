@@ -229,7 +229,9 @@ export default Mixin.create({
       // if value starts as true, add it immediatly
       let value = this.get(propName);
       if (value) {
-        this.get('transitionClasses').addObject(className);
+        run(() => {
+          this.get('transitionClasses').addObject(className);
+        });
       }
 
       // add observer
